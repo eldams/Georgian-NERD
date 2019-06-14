@@ -10,8 +10,8 @@ def get_cmd_args():
     if len(sys.argv) > 2:
         return sys.argv[0], sys.argv[1]
     else:
-        return os.getcwd() + r'\annotations\text-input.txt', \
-               os.getcwd() + r'\annotations\words-to-match.txt'
+        return os.getcwd() + r'\text-input.txt', \
+               os.getcwd() + r'\words-to-match.txt'
 
 
 def get_text_and_words():
@@ -26,15 +26,21 @@ def get_text_and_words():
     return text, words
 
 
+def annotate_word(word):
+    return '<b> {} </b>'.format(word)
+
+
+def annotate_text(text, words):
+    for word in words:
+        text = text.replace(word, annotate_word(word))
+
+    return text
+
+
 def main():
     text, words = get_text_and_words()
 
-    print(text)
-    print(words)
-
-
-
-
+    print(annotate_text(text, words))
 
 
 if __name__ == "__main__":
