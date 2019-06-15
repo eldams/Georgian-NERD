@@ -1,3 +1,6 @@
 # Georgian-NER-EL
 
-added line -> Luka Rekhviashvili
+Two main scripts
+
+- train.sh: get list of entities and prepare model
+- tag.sh: find entities in a given Georgian raw text

@@ -1,14 +1,25 @@
 from mediawiki import MediaWiki;
 wikipedia=MediaWiki(lang='ka');
 
-citysubcats = ['კატეგორია:ქალაქები_ქვეყნების_მიხედვით']
-while citysubcats:
-	subsubcats = []
-	for subcat in citysubcats:
-		subcat = subcat[len('კატეგორია:'):]
-		#print('SUBCAT', subcat)
-		citypages, ssc=wikipedia.categorymembers(subcat, subcategories=True);
-		subsubcats.extend(ssc)
-		for citypage in citypages:
-			print(citypage)
-	citysubcats = subsubcats
+catprefix = 'კატეგორია:'
+entitycats = {
+	'loc.cities': 'ქალაქები_ქვეყნების_მიხედვით',
+	'loc.countries.africa' : 'აფრიკის ქვეყნები',
+	'loc.countries.asia' : 'აზიის ქვეყნები',
+	'loc.countries.europe' : 'ევროპის ქვეყნები',
+	'loc.countries.america.north' : 'ჩრდილოეთ ამერიკის ქვეყნები',
+	'loc.countries.oceania' : 'ოკეანეთის ქვეყნები',
+	'loc.countries.america.south' : 'სამხრეთ ამერიკის ქვეყნები',
+}
+
+for entitycat in entitycats:
+	catnames = [catprefix+entitycats[entitycat]]
+	while catnames:
+		allsubcats = []
+		for catname in catnames:
+			catname = catname[len(catprefix):]
+			entitypages, subcats=wikipedia.categorymembers(catname, subcategories=True);
+			allsubcats.extend(subcats)
+			for entitypage in entitypages:
+				print(entitypage+','+catname)
+		catnames = allsubcats
