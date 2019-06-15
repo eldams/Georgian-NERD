@@ -11,4 +11,5 @@ with open("test1.txt") as file_to_read:
             if re.match('^[ა-ჰa-zA-Z0-9_]+$',token):
                 token=" "+token
             myText+=token;
+###
 print(myText);
