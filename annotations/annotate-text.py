@@ -1,7 +1,3 @@
-# p1 = text file,
-# p2 = annotated file
-# tag text
-# return annotated text
 import sys
 import os
 
