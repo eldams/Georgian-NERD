@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-
 import re, sys
-
 myText=""
 for line in sys.stdin:
     line = line.strip()
