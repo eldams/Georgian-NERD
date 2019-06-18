@@ -21,5 +21,5 @@ for entitycat in entitycats:
 			entitypages, subcats=wikipedia.categorymembers(catname, subcategories=True);
 			allsubcats.extend(subcats)
 			for entitypage in entitypages:
-				print(entitypage+','+catname)
+				print(entitypage+','+entitycat)
 		catnames = allsubcats
