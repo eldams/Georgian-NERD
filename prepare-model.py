@@ -45,12 +45,14 @@ def get_text():
 
 def get_x_y(text, brat_annotations):
     words = re.sub("[^\w]", " ", text).split()
-    return [word for word in words], [brat_annotations.get(word, 0) for word in words]
+    return np.array([word for word in words]),\
+           np.array([brat_annotations.get(word, 0) for word in words])
 
 
 def main():
     text = get_text()
     brat_annotations = get_brat_annotations()
+
     x, y = get_x_y(text, brat_annotations)
 
     np_array = np.column_stack((x, y))
