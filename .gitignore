@@ -1,5 +1,9 @@
 split
+html2brat
+ka-embeddings
+vectorizer.pkl
 data/civil-ge.tsv
 data/tavisupleba.tsv
-data/data.txt
+data/all.*
 data/splitted
+data/brat_annotations

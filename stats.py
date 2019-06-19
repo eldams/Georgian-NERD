@@ -2,7 +2,7 @@ import os
 import sys
 import re
 
-fname = "data/data.txt"
+fname = "data/all.tsv"
 lines =0
 nwords =0
 nchars =0

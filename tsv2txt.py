@@ -1,14 +1,19 @@
 #!/usr/bin/python3
 import re, sys
 myText=''
+words = {}
 for line in sys.stdin:
 	line = line.strip()
-	print(line)
-	if not "<" in line[0]:
+	if not line.startswith('<'):
 		token=line.split("	")[0];
-		if re.match('^[ა-ჰa-zA-Z0-9_]+$',token):
-			token=" "+token
-		myText+=token
+		if not token in words:
+			words[token] = 0
+		words[token] += 1
+		myText+= " "+token
 	elif '</div>' in line:
 		print(myText)
 		myText=''
+
+wrdslstfile = open('data/words.lst', 'w')
+for word in sorted(words.keys()):
+	wrdslstfile.write(word+'\t'+str(words[word])+'\n')

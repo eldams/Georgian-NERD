@@ -55,7 +55,7 @@ void generate_output_files(const array<string,1000>&data,const string outFileDir
 }
 int main(){
 	srand(time(NULL));
-	const string inputFileName = "data/data.txt";
+	const string inputFileName = "data/all.txt";
 	const string outputDir = "data/splitted/";
 
 	set<long long> s;

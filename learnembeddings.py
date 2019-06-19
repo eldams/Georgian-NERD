@@ -8,11 +8,8 @@ linecount = 0
 maxlines = None
 print('read corpus')
 for line in sys.stdin:
-	lineparts = line.strip().split('\t')
-	if len(lineparts) > 1:
-		lemma = lineparts[1]
-		if len(lemma) > 2:
-			sent.append(lemma[1:-1])
+	if not line.startswith('<'):
+		sent.append(line.strip().split('\t')[0])
 	if '</div>' in line:
 		sentences.append(sent)
 		sent = []
