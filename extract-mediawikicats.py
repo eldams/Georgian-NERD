@@ -1,3 +1,6 @@
+#!/bin/env python
+# -*- coding: utf-8 -*-
+
 from mediawiki import MediaWiki;
 wikipedia=MediaWiki(lang='ka');
 

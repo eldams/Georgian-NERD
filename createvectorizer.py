@@ -1,4 +1,5 @@
-#!/usr/bin/env python3
+#!/bin/env python
+# -*- coding: utf-8 -*-
 
 from sklearn.feature_extraction.text import CountVectorizer
 corpus = []
@@ -9,4 +10,4 @@ vectorizer = CountVectorizer()
 vectorizer.fit(corpus)
 
 import pickle
-pickle.dump(vectorizer, open("vectorizer.pkl", "wb"))
+pickle.dump(vectorizer, open('vectorizer.pkl', 'wb'))
